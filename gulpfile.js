@@ -4,7 +4,7 @@ var rollup      = require('rollup').rollup;
 var commonjs    = require('rollup-plugin-commonjs');
 var nodeResolve = require('rollup-plugin-node-resolve');
 
-gulp.task('script', function () {
+gulp.task('default', function () {
     return rollup({
         entry: 'src/main.js',
         plugins: [
@@ -15,7 +15,7 @@ gulp.task('script', function () {
         // 输出 bundle + sourcemap
         var result = bundle.generate({
             // output format - 'amd', 'cjs', 'es6', 'iife', 'umd'
-            format: 'cjs'
+            format: 'umd'
         });
 
         fs.writeFileSync( 'bundle.js', result.code );
